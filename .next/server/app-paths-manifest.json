@@ -1,6 +1,4 @@
 {
   "/page": "app/page.js",
-  "/services/pipe-welding/page": "app/services/pipe-welding/page.js",
-  "/services/custom-fabrication/page": "app/services/custom-fabrication/page.js",
   "/contact/page": "app/contact/page.js"
 }

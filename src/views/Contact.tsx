@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Phone, Mail, MapPin, Map, Clock, Send } from "lucide-react";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
+import TurnstileWidget from "@/components/shared/TurnstileWidget";
 import usePageSeo from "@/hooks/use-seo";
 import heroImg from "@/assets/hero-bg.jpg";
 import { useBreadcrumbSchema } from "@/hooks/use-structured-data";
@@ -17,6 +18,10 @@ const Contact = () => {
   useBreadcrumbSchema([{ name: "Contact" }]);
   const [form, setForm] = useState({ name: "", phone: "", email: "", service: "", message: "" });
   const [phoneError, setPhoneError] = useState("");
+  const [captchaError, setCaptchaError] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [turnstileKey, setTurnstileKey] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
   const normalizePhone = (phone: string): string | null => {
@@ -37,16 +42,32 @@ const Contact = () => {
       setPhoneError("Please enter a valid phone number (e.g. 555-123-4567)");
       return;
     }
+    if (!turnstileToken) {
+      setCaptchaError("Please complete the security check.");
+      return;
+    }
     setPhoneError("");
+    setCaptchaError("");
+    setIsSubmitting(true);
     try {
-      await fetch("https://ywwxvriolxwuqcwjaluh.supabase.co/functions/v1/form-submit/0335af3b-685e-417b-bde6-9e5fda77a586", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, turnstileToken }),
       });
+      if (!res.ok) {
+        setCaptchaError("Security check failed. Please try again.");
+        setTurnstileToken("");
+        setTurnstileKey((k) => k + 1);
+        return;
+      }
       router.push("/thank-you");
     } catch {
-      router.push("/thank-you");
+      setCaptchaError("Something went wrong. Please try again.");
+      setTurnstileToken("");
+      setTurnstileKey((k) => k + 1);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -107,8 +128,25 @@ const Contact = () => {
                     <label htmlFor="message" className="block font-ui text-base text-card-foreground mb-1.5">MESSAGE</label>
                     <textarea id="message" rows={4} value={form.message} onChange={e => setForm({...form, message: e.target.value})} className="w-full px-4 py-3 bg-crk-white border border-input rounded-sm text-sm font-roboto text-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none" placeholder="Describe your project or repair needs..." />
                   </div>
-                  <button type="submit" className="w-full bg-primary text-primary-foreground py-4 rounded-sm font-ui text-base hover:bg-crk-red-dark transition-colors btn-spark min-h-[44px]">
-                    SEND REQUEST
+                  <TurnstileWidget
+                    key={turnstileKey}
+                    onVerify={(token) => {
+                      setTurnstileToken(token);
+                      setCaptchaError("");
+                    }}
+                    onExpire={() => setTurnstileToken("")}
+                    onError={() => {
+                      setTurnstileToken("");
+                      setCaptchaError("Security check failed to load. Please refresh the page.");
+                    }}
+                  />
+                  {captchaError && <p className="text-destructive text-xs font-roboto">{captchaError}</p>}
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-primary text-primary-foreground py-4 rounded-sm font-ui text-base hover:bg-crk-red-dark transition-colors btn-spark min-h-[44px] disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? "SENDING..." : "SEND REQUEST"}
                   </button>
                 </form>
             </AnimatedSection>

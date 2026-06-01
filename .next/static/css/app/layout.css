@@ -1090,6 +1090,9 @@ h3{
 .min-h-\[44px\]{
   min-height: 44px;
 }
+.min-h-\[65px\]{
+  min-height: 65px;
+}
 .min-h-\[800px\]{
   min-height: 800px;
 }
@@ -2663,6 +2666,10 @@ h3{
 
 .disabled\:opacity-50:disabled{
   opacity: 0.5;
+}
+
+.disabled\:opacity-60:disabled{
+  opacity: 0.6;
 }
 
 .group\/menu-item:focus-within .group-focus-within\/menu-item\:opacity-100{
