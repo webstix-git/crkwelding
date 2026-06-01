@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Phone, Mail, MapPin, Map, Clock, Send } from "lucide-react";
 import AnimatedSection from "@/components/shared/AnimatedSection";
@@ -35,6 +35,22 @@ const Contact = () => {
     return null;
   };
 
+  const handleTurnstileVerify = useCallback((token: string) => {
+    setTurnstileToken((prev) => (prev === token ? prev : token));
+    setCaptchaError("");
+  }, []);
+
+  const handleTurnstileExpire = useCallback(() => {
+    setTurnstileToken("");
+  }, []);
+
+  const handleTurnstileError = useCallback(() => {
+    setTurnstileToken("");
+    setCaptchaError(
+      "Security check could not load. Confirm crkwelding.vercel.app is allowed in Cloudflare Turnstile, then refresh."
+    );
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const normalized = normalizePhone(form.phone);
@@ -56,7 +72,19 @@ const Contact = () => {
         body: JSON.stringify({ ...form, turnstileToken }),
       });
       if (!res.ok) {
-        setCaptchaError("Security check failed. Please try again.");
+        const data = (await res.json().catch(() => ({}))) as { error?: string; detail?: string };
+        let message = "Something went wrong. Please try again.";
+        if (res.status === 403) {
+          message =
+            data.detail?.includes("not configured")
+              ? "Missing TURNSTILE_SECRET_KEY in .env.local. Copy .env.example to .env.local and add your secret key."
+              : "Security check expired or failed. Please complete it again and resubmit.";
+        } else if (res.status === 502) {
+          message = "Could not send your message. Please call 417-307-1017.";
+        } else if (data.detail) {
+          message = data.detail;
+        }
+        setCaptchaError(message);
         setTurnstileToken("");
         setTurnstileKey((k) => k + 1);
         return;
@@ -130,15 +158,9 @@ const Contact = () => {
                   </div>
                   <TurnstileWidget
                     key={turnstileKey}
-                    onVerify={(token) => {
-                      setTurnstileToken(token);
-                      setCaptchaError("");
-                    }}
-                    onExpire={() => setTurnstileToken("")}
-                    onError={() => {
-                      setTurnstileToken("");
-                      setCaptchaError("Security check failed to load. Please refresh the page.");
-                    }}
+                    onVerify={handleTurnstileVerify}
+                    onExpire={handleTurnstileExpire}
+                    onError={handleTurnstileError}
                   />
                   {captchaError && <p className="text-destructive text-xs font-roboto">{captchaError}</p>}
                   <button
