@@ -1,0 +1,19 @@
+1:"$Sreact.fragment"
+2:I[8331,["176","static/chunks/176-5e6ca583d820caa4.js","493","static/chunks/493-e4460fb0c061a3a8.js","127","static/chunks/127-5b69b50305fa1880.js","177","static/chunks/app/layout-d72d20e546f90793.js"],"default"]
+3:I[9766,[],""]
+4:I[8924,[],""]
+5:I[842,["345","static/chunks/app/not-found-e3bd117c4ccad60e.js"],"default"]
+6:I[2780,["176","static/chunks/176-5e6ca583d820caa4.js","868","static/chunks/868-fa0be862bfedfff2.js","235","static/chunks/app/gallery/page-b3d983a45a813529.js"],"default"]
+7:I[4431,[],"OutletBoundary"]
+9:I[5278,[],"AsyncMetadataOutlet"]
+b:I[4431,[],"ViewportBoundary"]
+d:I[4431,[],"MetadataBoundary"]
+e:"$Sreact.suspense"
+10:I[7150,[],""]
+:HL["/_next/static/css/6cffc892c2827f24.css","style"]
+0:{"P":null,"b":"dhZl6YWimpCVuEya402ZT","p":"","c":["","gallery"],"i":false,"f":[[["",{"children":["gallery",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/6cffc892c2827f24.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":["$","$L2",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L5",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":["gallery",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[["$","$L6",null,{}],null,["$","$L7",null,{"children":["$L8",["$","$L9",null,{"promise":"$@a"}]]}]]}],{},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$Lb",null,{"children":"$Lc"}],null],["$","$Ld",null,{"children":["$","div",null,{"hidden":true,"children":["$","$e",null,{"fallback":null,"children":"$Lf"}]}]}]]}],false]],"m":"$undefined","G":["$10",[]],"s":false,"S":true}
+c:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+11:I[622,[],"IconMark"]
+a:{"metadata":[["$","title","0",{"children":"Gallery | CRK Welding"}],["$","meta","1",{"name":"description","content":"Browse recent CRK Welding projects including structural welding, fabrication, and equipment repair."}],["$","meta","2",{"property":"og:title","content":"Gallery | CRK Welding"}],["$","meta","3",{"property":"og:description","content":"Browse recent CRK Welding projects including structural welding, fabrication, and equipment repair."}],["$","meta","4",{"property":"og:url","content":"https://crkwelding.com"}],["$","meta","5",{"property":"og:site_name","content":"CRK Welding"}],["$","meta","6",{"property":"og:image","content":"https://crkwelding.com/og-image.jpg"}],["$","meta","7",{"property":"og:type","content":"website"}],["$","meta","8",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","9",{"name":"twitter:title","content":"Gallery | CRK Welding"}],["$","meta","10",{"name":"twitter:description","content":"Browse recent CRK Welding projects including structural welding, fabrication, and equipment repair."}],["$","meta","11",{"name":"twitter:image","content":"https://crkwelding.com/og-image.jpg"}],["$","link","12",{"rel":"icon","href":"/favicon.ico"}],["$","$L11","13",{}]],"error":null,"digest":"$undefined"}
+f:"$a:metadata"

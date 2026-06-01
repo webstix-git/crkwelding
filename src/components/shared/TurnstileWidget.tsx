@@ -1,9 +1,8 @@
 "use client";
 
 import Script from "next/script";
-import { useCallback, useEffect, useRef } from "react";
-
-const SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { TURNSTILE_SITE_KEY } from "@/lib/turnstile";
 
 type TurnstileWidgetProps = {
   onVerify: (token: string) => void;
@@ -32,21 +31,35 @@ declare global {
 const TurnstileWidget = ({ onVerify, onExpire, onError }: TurnstileWidgetProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | null>(null);
+  const [scriptLoaded, setScriptLoaded] = useState(false);
 
   const renderWidget = useCallback(() => {
-    if (!containerRef.current || !window.turnstile || !SITE_KEY || widgetIdRef.current) return;
+    if (!containerRef.current || !window.turnstile || !TURNSTILE_SITE_KEY || widgetIdRef.current) {
+      return false;
+    }
 
     widgetIdRef.current = window.turnstile.render(containerRef.current, {
-      sitekey: SITE_KEY,
+      sitekey: TURNSTILE_SITE_KEY,
       callback: onVerify,
       "expired-callback": onExpire,
       "error-callback": onError,
       theme: "auto",
     });
+    return true;
   }, [onVerify, onExpire, onError]);
 
+  const tryRender = useCallback(() => {
+    if (renderWidget()) return;
+    // Retry once after paint if script beat the container ref
+    requestAnimationFrame(() => {
+      renderWidget();
+    });
+  }, [renderWidget]);
+
   useEffect(() => {
-    if (window.turnstile) renderWidget();
+    if (scriptLoaded || window.turnstile) {
+      tryRender();
+    }
 
     return () => {
       if (widgetIdRef.current && window.turnstile) {
@@ -54,16 +67,26 @@ const TurnstileWidget = ({ onVerify, onExpire, onError }: TurnstileWidgetProps) 
         widgetIdRef.current = null;
       }
     };
-  }, [renderWidget]);
+  }, [scriptLoaded, tryRender]);
 
-  if (!SITE_KEY) return null;
+  if (!TURNSTILE_SITE_KEY) {
+    return (
+      <p className="text-destructive text-xs font-roboto">
+        Security check is not configured. Please contact the site owner.
+      </p>
+    );
+  }
 
   return (
     <>
       <Script
         src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-        strategy="lazyOnload"
-        onLoad={renderWidget}
+        strategy="afterInteractive"
+        onLoad={() => {
+          setScriptLoaded(true);
+          tryRender();
+        }}
+        onError={() => onError?.()}
       />
       <div ref={containerRef} className="min-h-[65px]" />
     </>
