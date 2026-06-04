@@ -15,7 +15,7 @@ const Contact = () => {
     title: "Contact Us | CRK Welding",
     description: "Get in touch with CRK Welding for a free estimate. Call 417-307-1017 or submit our online form. Emergency and after-hours service available 24/7.",
   });
-  useBreadcrumbSchema([{ name: "Contact" }]);
+  useBreadcrumbSchema([{ name: "Contact Us" }]);
   const [form, setForm] = useState({ name: "", phone: "", email: "", service: "", message: "" });
   const [phoneError, setPhoneError] = useState("");
   const [captchaError, setCaptchaError] = useState("");
@@ -115,7 +115,7 @@ const Contact = () => {
 
       <div className="bg-background border-b border-border">
         <div className="container mx-auto px-4 py-3">
-          <Breadcrumbs items={[{ label: "Contact" }]} />
+          <Breadcrumbs items={[{ label: "Contact Us" }]} />
         </div>
       </div>
 
