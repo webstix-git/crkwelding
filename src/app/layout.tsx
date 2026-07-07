@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "../index.css";
 import SiteShell from "@/components/layout/SiteShell";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
+import GoogleAnalyticsPageView from "@/components/analytics/GoogleAnalyticsPageView";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -37,6 +39,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <GoogleAnalytics />
+        <GoogleAnalyticsPageView />
         <SiteShell>{children}</SiteShell>
       </body>
     </html>
