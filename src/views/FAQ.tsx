@@ -12,12 +12,12 @@ import { useFAQSchema, useBreadcrumbSchema } from "@/hooks/use-structured-data";
 const faqs = [
   { q: "What types of welding services does CRK Welding offer?", a: "We provide structural welding (AWS D1.1 & D1.2), pipe welding (API 1104), heavy equipment repair, custom fabrication, MIG, TIG, Stick, Fluxcore, cutting, and gouging. We work with carbon steel, aluminum, and specialty metals." },
   { q: "Do you offer emergency or after-hours service?", a: "Yes. We are on-call 24/7 for emergency situations including construction site breakdowns, night-time road closures, and critical equipment failures. Call 417-307-1017 anytime." },
-  { q: "What is your service area?", a: "We serve a 100-mile radius from Fair Play, Missouri (65649). This covers much of southwest and central Missouri. For projects outside this area, contact us to discuss." },
-  { q: "How do you determine pricing?", a: "Due to the constant changes in the steel industry and welding supply market, prices reflect the current market conditions. We provide detailed estimates via phone or email based on your specific project requirements." },
-  { q: "What certifications does CRK Welding hold?", a: "Cody holds certifications from Lincoln Electric Welding and AWS, including AWS D1.1 (Structural Steel), AWS D1.2 (Aluminum), API 1104 (Pipeline), NHRA Chassis, and Aerospace D17.1." },
-  { q: "Do you provide mobile welding services?", a: "Yes. Mobile on-site welding is one of our core services. We bring our equipment to your jobsite for cutting, welding, and gouging — minimizing your downtime and keeping projects on schedule." },
-  { q: "How do I get an estimate?", a: "Call us at 417-307-1017 or fill out our contact form. We'll discuss your project requirements and provide a detailed estimate based on current material and labor costs." },
-  { q: "Can you handle aerospace welding?", a: "Yes. Cody holds the Aerospace D17.1 certification. Aerospace welding projects are evaluated on a case-by-case basis due to their specialized nature. Contact us to discuss your specific requirements." },
+  { q: "What is your service area?", a: "We serve a 100-mile radius from Fair Play, Missouri 65649. This covers much of southwest and central Missouri. For projects outside this area, contact us to discuss your project." },
+  { q: "How do you determine pricing?", a: "Due to the constant changes in the steel industry and welding supply market, prices reflect current market conditions. We provide detailed estimates by phone or email based on your specific project requirements." },
+  { q: "What certifications does CRK Welding hold?", a: "Cody holds certifications from Lincoln Electric Welding and AWS, including AWS D1.1 Structural Steel, AWS D1.2 Aluminum, API 1104 Pipeline, NHRA Chassis, and Aerospace D17.1." },
+  { q: "Do you provide mobile welding services?", a: "Yes. Mobile on-site welding is one of our core services. We bring our equipment to your jobsite for cutting, welding, and gouging, minimizing downtime and helping keep projects on schedule." },
+  { q: "How do I get an estimate?", a: "Call us at 417-307-1017 or complete the contact form on our website. We'll discuss your project requirements and provide a detailed estimate based on current material and labor costs." },
+  { q: "Can you handle aerospace welding?", a: "Yes. Cody holds the Aerospace D17.1 certification. Aerospace welding projects are evaluated on a case-by-case basis because of their specialized requirements. Contact us to discuss your project." },
 ];
 
 const FAQ = () => {

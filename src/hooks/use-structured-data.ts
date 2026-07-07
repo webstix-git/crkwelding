@@ -114,6 +114,7 @@ export const useFAQSchema = (faqs: { q: string; a: string }[]) => {
   useStructuredData({
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "@id": "https://www.crkwelding.com/faq#faq",
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
       name: faq.q,

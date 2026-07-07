@@ -1,14 +1,20 @@
 {
-  "..\\node_modules\\next\\dist\\client\\dev\\hot-reloader\\app\\use-websocket.js -> @vercel/turbopack-ecmascript-runtime/browser/dev/hmr-client/hmr-client.ts": {
-    "id": "..\\node_modules\\next\\dist\\client\\dev\\hot-reloader\\app\\use-websocket.js -> @vercel/turbopack-ecmascript-runtime/browser/dev/hmr-client/hmr-client.ts",
+  "..\\node_modules\\next\\dist\\client\\index.js -> ../pages/_app": {
+    "id": 5139,
     "files": [
-      "static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+      "static/chunks/139.e8e07991ffedd534.js"
+    ]
+  },
+  "..\\node_modules\\next\\dist\\client\\index.js -> ../pages/_error": {
+    "id": 1646,
+    "files": [
+      "static/chunks/646.a702bf538bb261ec.js"
     ]
   },
   "components\\shared\\TurnstileWidget.tsx -> @marsidev/react-turnstile": {
-    "id": "components\\shared\\TurnstileWidget.tsx -> @marsidev/react-turnstile",
+    "id": 7118,
     "files": [
-      "static/chunks/_app-pages-browser_node_modules_marsidev_react-turnstile_dist_index_js.js"
+      "static/chunks/118.c30d9cc2836b2ea5.js"
     ]
   }
 }

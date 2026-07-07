@@ -1,0 +1,16 @@
+{
+  "/api/contact/route": "/api/contact",
+  "/_not-found/page": "/_not-found",
+  "/contact/page": "/contact",
+  "/about/page": "/about",
+  "/gallery/page": "/gallery",
+  "/page": "/",
+  "/faq/page": "/faq",
+  "/services/custom-fabrication/page": "/services/custom-fabrication",
+  "/services/pipe-welding/page": "/services/pipe-welding",
+  "/services/structural-welding/page": "/services/structural-welding",
+  "/thank-you/page": "/thank-you",
+  "/services/heavy-equipment/page": "/services/heavy-equipment",
+  "/sitemap/page": "/sitemap",
+  "/services/page": "/services"
+}
