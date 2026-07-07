@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import PipeWeldingPage from "@/views/services/PipeWelding";
+import { withCanonical } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withCanonical("/services/pipe-welding", {
   title: "Pipe Welding",
   description:
     "API 1104 certified pipe welding for tie-ins, new construction, and pipeline repairs in southwest Missouri.",
-};
+});
 
 export default function Page() {
   return <PipeWeldingPage />;

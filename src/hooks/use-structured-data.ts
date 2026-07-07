@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-
-const SITE_URL = "https://crkwelding.com";
+import { SITE_URL } from "@/lib/site";
 
 const useStructuredData = (data: Record<string, unknown> | Record<string, unknown>[]) => {
   useEffect(() => {
@@ -114,7 +113,7 @@ export const useFAQSchema = (faqs: { q: string; a: string }[]) => {
   useStructuredData({
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "@id": "https://www.crkwelding.com/faq#faq",
+    "@id": `${SITE_URL}/faq#faq`,
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
       name: faq.q,

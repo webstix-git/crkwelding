@@ -1,18 +1,17 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { canonicalUrl } from "@/lib/site";
 
 interface SeoProps {
   title: string;
   description: string;
 }
 
-const SITE_URL = "https://crkwelding.com";
-
 const usePageSeo = ({ title, description }: SeoProps) => {
   const pathname = usePathname();
 
   useEffect(() => {
-    const url = `${SITE_URL}${pathname}`;
+    const url = canonicalUrl(pathname);
 
     document.title = title;
 
@@ -28,11 +27,13 @@ const usePageSeo = ({ title, description }: SeoProps) => {
     setMeta('meta[name="twitter:title"]', "content", title);
     setMeta('meta[name="twitter:description"]', "content", description);
 
-    // Update canonical
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-    if (canonical) {
-      canonical.href = url;
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.rel = "canonical";
+      document.head.appendChild(canonical);
     }
+    canonical.href = url;
   }, [title, description, pathname]);
 };
 

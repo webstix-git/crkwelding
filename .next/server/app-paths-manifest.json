@@ -3,14 +3,14 @@
   "/_not-found/page": "app/_not-found/page.js",
   "/contact/page": "app/contact/page.js",
   "/about/page": "app/about/page.js",
-  "/gallery/page": "app/gallery/page.js",
-  "/page": "app/page.js",
-  "/faq/page": "app/faq/page.js",
+  "/services/page": "app/services/page.js",
   "/services/custom-fabrication/page": "app/services/custom-fabrication/page.js",
-  "/services/pipe-welding/page": "app/services/pipe-welding/page.js",
-  "/services/structural-welding/page": "app/services/structural-welding/page.js",
-  "/thank-you/page": "app/thank-you/page.js",
+  "/faq/page": "app/faq/page.js",
   "/services/heavy-equipment/page": "app/services/heavy-equipment/page.js",
+  "/services/structural-welding/page": "app/services/structural-welding/page.js",
+  "/gallery/page": "app/gallery/page.js",
   "/sitemap/page": "app/sitemap/page.js",
-  "/services/page": "app/services/page.js"
+  "/page": "app/page.js",
+  "/services/pipe-welding/page": "app/services/pipe-welding/page.js",
+  "/thank-you/page": "app/thank-you/page.js"
 }

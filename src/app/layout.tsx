@@ -1,23 +1,25 @@
 import type { Metadata } from "next";
 import "../index.css";
 import SiteShell from "@/components/layout/SiteShell";
-
-const siteUrl = "https://crkwelding.com";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "CRK Welding | Mobile Welding, Fair Play MO",
     template: "%s | CRK Welding",
   },
   description:
     "AWS certified mobile welding in Fair Play, MO. Structural steel, pipe welding, equipment repair, and custom fabrication.",
+  alternates: {
+    canonical: SITE_URL,
+  },
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
     type: "website",
-    url: siteUrl,
+    url: SITE_URL,
     siteName: "CRK Welding",
     images: [{ url: "/og-image.jpg" }],
   },

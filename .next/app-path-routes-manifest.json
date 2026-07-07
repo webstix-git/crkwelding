@@ -3,14 +3,14 @@
   "/_not-found/page": "/_not-found",
   "/contact/page": "/contact",
   "/about/page": "/about",
-  "/gallery/page": "/gallery",
-  "/page": "/",
-  "/faq/page": "/faq",
+  "/services/page": "/services",
   "/services/custom-fabrication/page": "/services/custom-fabrication",
-  "/services/pipe-welding/page": "/services/pipe-welding",
-  "/services/structural-welding/page": "/services/structural-welding",
-  "/thank-you/page": "/thank-you",
+  "/faq/page": "/faq",
   "/services/heavy-equipment/page": "/services/heavy-equipment",
+  "/services/structural-welding/page": "/services/structural-welding",
+  "/gallery/page": "/gallery",
   "/sitemap/page": "/sitemap",
-  "/services/page": "/services"
+  "/page": "/",
+  "/services/pipe-welding/page": "/services/pipe-welding",
+  "/thank-you/page": "/thank-you"
 }
