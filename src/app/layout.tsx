@@ -38,6 +38,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          defer
+          data-site="c051658e79054752"
+          data-endpoint="https://ywwxvriolxwuqcwjaluh.supabase.co/functions/v1/track-event"
+          src="https://midwestfamilyportal.com/track.js"
+        />
+      </head>
       <body>
         <GoogleAnalytics />
         <GoogleAnalyticsPageView />
